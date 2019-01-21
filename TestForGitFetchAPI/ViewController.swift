@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var myGitDataTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
     //Local variable Declaration
     var arrOFUserData : [GitUserDataModel]=[]
     
