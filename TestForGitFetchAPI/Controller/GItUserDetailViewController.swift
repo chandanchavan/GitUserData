@@ -10,7 +10,6 @@ import UIKit
 
 class GItUserDetailViewController: UIViewController {
     //IBOutlets
-    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblHeaderLoginName: UILabel!
     @IBOutlet weak var lblHeaderFollwers: UILabel!
@@ -18,21 +17,21 @@ class GItUserDetailViewController: UIViewController {
     @IBOutlet weak var lblHeaderPublicRepo: UILabel!
     @IBOutlet weak var lblHeaderFollowrsUrl: UILabel!
     @IBOutlet weak var lblHeaderLocation: UILabel!
+    @IBOutlet weak var lblHeaderUpdatedAt: UILabel!
     @IBOutlet weak var lblLoginName: UILabel!
     @IBOutlet weak var lblFollwers: UILabel!
     @IBOutlet weak var lblPblicGits: UILabel!
     @IBOutlet weak var lblPublicRepo: UILabel!
     @IBOutlet weak var lblFollowrsUrl: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
-    
+    @IBOutlet weak var lblUpdatedAt: UILabel!
     //Local variable Decleration
     var userData = GitUserDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUPUI()
-        setData(data: self.userData)
-        // Do any additional setup after loading the view.
+        setUPUI() //Setting the UI
+        setData(data: self.userData) // Setting the data
     }
     func setUPUI() {
         imgView.layer.borderWidth = 1
@@ -42,12 +41,15 @@ class GItUserDetailViewController: UIViewController {
         imgView.clipsToBounds = true
     }
     func setData(data:GitUserDataModel ) -> Void {
+        self.title = "User Details"
+self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         lblLoginName.text = userData.login
         lblFollwers.text = userData.followers
         lblPblicGits.text = userData.public_gists
         lblPublicRepo.text = userData.public_repos
         lblFollowrsUrl.text = userData.followers_url
         lblLocation.text = userData.location
+        lblUpdatedAt.text = userData.updated_at
         if (userData.image != nil) {
             self.imgView.image = userData.image
         }else {
@@ -56,7 +58,6 @@ class GItUserDetailViewController: UIViewController {
             }
         }
     }
-
     @IBAction func btnShareClicked(_ sender: Any) {
     let text = "This is sharing Git user infomation"
     let url = NSURL(string: "\(userData.login), \(userData.followers_url)")

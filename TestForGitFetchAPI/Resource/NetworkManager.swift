@@ -15,13 +15,8 @@ class NetworkManager : NSObject {
     static let sharedInstance = NetworkManager()
     override init() {}
     func getGitUserDataFromServer(userName:String, completion:@escaping (_ response :NSDictionary?, _ error: Error?)->Void) -> Void {
-        
         let config = URLSessionConfiguration.default
-//        config.httpAdditionalHeaders = [
-//            "Accept" : "application/json",
-//            "Content-Type" : "application/x-www-form-urlencoded"
-//        ]
-        let url = URL(string: "http://api.github.com/users/\(userName)")
+        var url = URL(string: "http://api.github.com/users/\(userName)")
         let session = URLSession(configuration: config)
         let request = URLRequest(url: url!)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -68,7 +63,7 @@ class NetworkManager : NSObject {
 }
 extension URLRequest {
     
-    private func percentEscapeString(_ string: String) -> String {
+     func percentEscapeString(_ string: String) -> String {
         var characterSet = CharacterSet.alphanumerics
         characterSet.insert(charactersIn: "-._* ")
         

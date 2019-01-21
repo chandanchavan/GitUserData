@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var myGitDataTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     //Local variable Declaration
     var arrOFUserData : [GitUserDataModel]=[]
     
@@ -44,7 +43,9 @@ class ViewController: UIViewController {
             showErrorPopup(msg: "Please enter the user name")
             return
         }else{
+            
             userName = txtUsername.text!
+            userName = self.percentEscapeString(userName)
         }
         self.activityIndicator.startAnimating()
         NetworkManager.sharedInstance.getGitUserDataFromServer(userName: userName) { (response, error) in
@@ -70,6 +71,15 @@ class ViewController: UIViewController {
             }
         }
         
+    }
+    func percentEscapeString(_ string: String) -> String {
+        var characterSet = CharacterSet.alphanumerics
+        characterSet.insert(charactersIn: "-._* ")
+        
+        return string
+            .addingPercentEncoding(withAllowedCharacters: characterSet)!
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: " ", with: "", options: [], range: nil)
     }
     func showErrorPopup(msg : String) -> Void {
         let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertController.Style.alert)

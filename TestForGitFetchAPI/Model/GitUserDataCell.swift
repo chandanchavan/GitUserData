@@ -25,7 +25,13 @@ class GitUserDataCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setData(data : GitUserDataModel) -> Void {
-        self.lblName.text = data.login
+        if data.name != ""
+        {
+            self.lblName.text = data.name
+        }
+        else{
+            self.lblName.text = data.login
+        }
         self.activityIndicator.stopAnimating()
         if (data.image != nil) {
             self.imgView.image = data.image

@@ -84,10 +84,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4629F11F21F630580056BF74 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4637D67521F5BBF300A88FA9 /* ViewController.swift */,
+				463385CA21F5F01900236CA4 /* GItUserDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4629F12021F6307A0056BF74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4637D6A621F5DA8400A88FA9 /* GitUserDataModel.swift */,
+				4637D6A821F5DCAA00A88FA9 /* GitUserDataCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4629F12121F630920056BF74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4637D67721F5BBF300A88FA9 /* Main.storyboard */,
+				4637D67F21F5BBF500A88FA9 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4629F12221F630B70056BF74 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4637D67A21F5BBF300A88FA9 /* TestForGitFetchAPI.xcdatamodeld */,
+				4637D67321F5BBF300A88FA9 /* AppDelegate.swift */,
+				4637D6A421F5CD7600A88FA9 /* NetworkManager.swift */,
+				4637D67D21F5BBF500A88FA9 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		4637D66721F5BBF300A88FA9 = {
 			isa = PBXGroup;
 			children = (
 				4637D67221F5BBF300A88FA9 /* TestForGitFetchAPI */,
+				4637D68221F5BBF500A88FA9 /* Info.plist */,
 				4637D68A21F5BBF500A88FA9 /* TestForGitFetchAPITests */,
 				4637D69521F5BBF500A88FA9 /* TestForGitFetchAPIUITests */,
 				4637D67121F5BBF300A88FA9 /* Products */,
@@ -107,17 +146,10 @@
 		4637D67221F5BBF300A88FA9 /* TestForGitFetchAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4637D67321F5BBF300A88FA9 /* AppDelegate.swift */,
-				4637D67521F5BBF300A88FA9 /* ViewController.swift */,
-				4637D6A421F5CD7600A88FA9 /* NetworkManager.swift */,
-				4637D6A621F5DA8400A88FA9 /* GitUserDataModel.swift */,
-				4637D6A821F5DCAA00A88FA9 /* GitUserDataCell.swift */,
-				463385CA21F5F01900236CA4 /* GItUserDetailViewController.swift */,
-				4637D67721F5BBF300A88FA9 /* Main.storyboard */,
-				4637D67D21F5BBF500A88FA9 /* Assets.xcassets */,
-				4637D67F21F5BBF500A88FA9 /* LaunchScreen.storyboard */,
-				4637D68221F5BBF500A88FA9 /* Info.plist */,
-				4637D67A21F5BBF300A88FA9 /* TestForGitFetchAPI.xcdatamodeld */,
+				4629F12021F6307A0056BF74 /* Model */,
+				4629F12121F630920056BF74 /* View */,
+				4629F11F21F630580056BF74 /* Controller */,
+				4629F12221F630B70056BF74 /* Resource */,
 			);
 			path = TestForGitFetchAPI;
 			sourceTree = "<group>";
@@ -453,7 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TestForGitFetchAPI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TestForGitFetchAPI/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
